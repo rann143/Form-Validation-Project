@@ -14,13 +14,13 @@
         <div style="font-weight: 600; margin-bottom: 10px;">Required fields are followed by <span aria-label="required">*</span></div>
         <div class="form-div">
           <label for="email">Type in your email:<span aria-label="required">*</span></label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" placeholder="Email" required>
           <div class="error" id="email-error">*placeholder error</div>
         </div>
         <div class="form-div">
           <label for="country">Country of Residence:<span aria-label="required">*</span></label>
-          <input type="text" id="country" name="country" list="c1" required>
-          <datalist id="c1">
+          <select id="country" name="country" required>
+                <option value="" disabled selected hidden>Choose a country</option>
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
@@ -265,22 +265,22 @@
                 <option value="Yemen">Yemen</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
-          </datalist>
+          </select>
           <div class="error" id="country-error"></div>
         </div>
         <div class="form-div">
           <label for="zip">Zip Code:<span aria-label="required">*</span></label>
-          <input type="text" id="zip" name="zip" >
+          <input type="text" id="zip" name="zip" placeholder="Zip Code" required>
           <div class="error" id="zip-error"></div>
         </div>
         <div class="form-div">
           <label for="password">Password:<span aria-label="required">*</span></label>
-          <input type="text" id="password" name="password" required >
+          <input type="text" id="password" name="password" placeholder="Password" required minlength="8">
           <div class="error" id="password-error"></div>
         </div>
         <div class="form-div">
           <label for="password-confirmation">Confirm Password:<span aria-label="required">*</span></label>
-          <input type="text" id="password-confirmation" name="password-confirmation" required>
+          <input type="text" id="password-confirmation" name="password-confirmation" required minlength="8">
           <div class="error" id="password-confirmation-error"></div>
         </div>
 

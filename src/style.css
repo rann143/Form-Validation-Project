@@ -1,13 +1,63 @@
 form {
+  width: 500px;
   border: solid 2px black;
   padding: 1rem;
   display: grid;
+  grid-template-columns: 1fr;
+
 }
 
 .form-div {
   margin: 10px;
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 200px 200px;
 }
+
 
 .error {
   color: red;
+  font-size: small;
+  grid-column: 2/3;
+  height: 15px;
 }
+
+button {
+  width: 50%;
+  justify-self: center;
+  padding: 1rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(172, 239, 217);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.208);
+}
+
+input {
+  border-radius: 5px;
+  background-color: white;
+}
+
+select {
+  border-radius: 5px;
+}
+
+input:valid {
+  border: solid green;
+  background-color: white;
+}
+
+input:invalid {
+  border: solid red;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+input:focus:valid {
+  outline: none;
+  background-color: white;
+}
+
