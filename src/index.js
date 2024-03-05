@@ -13,12 +13,8 @@ const passwordConfirmationError = document.querySelector(
 
 function showEmailError() {
   if (emailInput.validity.valueMissing) {
-    // If the field is empty,
-    // display the following error message.
     emailError.textContent = 'You need to enter an email address.';
   } else if (emailInput.validity.typeMismatch) {
-    // If the field doesn't contain an email address,
-    // display the following error message.
     emailError.textContent = 'Entered value needs to be an email address.';
   }
 }
@@ -27,23 +23,27 @@ function showZipError() {
     zipError.textContent = 'You need to enter a zip code.';
   }
 }
+
+function checkPasswordMatch() {
+  if (passwordInput.value === confirmPasswordInput.value) {
+    passwordError.textContent = '';
+    passwordConfirmationError.textContent = '';
+    confirmPasswordInput.style.border = 'solid green';
+  } else {
+    //   passwordError.textContent = '';
+    passwordConfirmationError.textContent = 'Passwords do not match.';
+    confirmPasswordInput.style.border = 'solid red';
+  }
+}
+
 function showPasswordError() {
   if (passwordInput.validity.valueMissing) {
     passwordError.textContent = 'You need to enter a password';
   } else if (passwordInput.validity.tooShort) {
     passwordError.textContent = `Your password should be at least ${passwordInput.minLength} characters; you entered ${passwordInput.value.length}.`;
+  } else if (passwordInput.value !== confirmPasswordInput.value) {
+    passwordError.textContent = 'Passwords do not match!';
   }
-}
-
-function checkPasswordMatch() {
-  if (passwordInput.value !== confirmPasswordInput.value) {
-    passwordError.textContent = 'Passwords do not match';
-    passwordConfirmationError.textContent = 'Passwords do not match.';
-    return false;
-  }
-  passwordError.textContent = '';
-  passwordConfirmationError.textContent = '';
-  return true;
 }
 
 form.addEventListener('submit', (e) => {
@@ -59,7 +59,8 @@ form.addEventListener('submit', (e) => {
     showPasswordError();
     e.preventDefault();
   }
-  if (checkPasswordMatch() === false) {
+  if (passwordInput.value !== confirmPasswordInput.value) {
+    showPasswordError();
     e.preventDefault();
   }
 });
@@ -73,10 +74,25 @@ emailInput.addEventListener('input', (e) => {
   }
 });
 
-passwordInput.addEventListener('input', (e) => {
-  checkPasswordMatch();
+zipInput.addEventListener('input', (e) => {
+  if (zipInput.validity.valid) {
+    zipError.textContent = '';
+    zipError.className = 'error';
+  } else {
+    showZipError();
+  }
 });
 
-confirmPasswordInput.addEventListener('input', (e) => {
-  checkPasswordMatch();
+passwordInput.addEventListener('input', (e) => {
+  if (passwordInput.validity.valid && passwordInput.value === confirmPasswordInput.value) {
+    passwordError.textContent = '';
+    passwordError.className = 'error';
+  } else if (passwordInput.validity.valid && passwordInput.value !== confirmPasswordInput.value) {
+    passwordError.textContent = 'Password is in the correct format but does not match.';
+  } else {
+    showPasswordError();
+  }
 });
+
+passwordInput.addEventListener('input', checkPasswordMatch);
+confirmPasswordInput.addEventListener('input', checkPasswordMatch);
