@@ -37,8 +37,8 @@ function showPasswordError() {
 
 function checkPasswordMatch() {
   if (passwordInput.value !== confirmPasswordInput.value) {
-    passwordError.textContent = 'Passwords Do Not Match';
-    passwordConfirmationError.textContent = 'Passwords Do Not Match.';
+    passwordError.textContent = 'Passwords do not match';
+    passwordConfirmationError.textContent = 'Passwords do not match.';
     return false;
   }
   passwordError.textContent = '';
