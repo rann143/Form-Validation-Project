@@ -1,8 +1,13 @@
-h1 {
-  color: rgb(40, 121, 76);
+form {
+  border: solid 2px black;
+  padding: 1rem;
+  display: grid;
 }
 
-.blur-back {
-  background-color: rgba(0, 0, 0, 0.408);
-  backdrop-filter: blur(3px);
+.form-div {
+  margin: 10px;
+}
+
+.error {
+  color: red;
 }

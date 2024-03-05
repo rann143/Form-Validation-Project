@@ -1,7 +1,7 @@
 {
-  "name": "my-template",
+  "name": "Form-Validation-Project",
   "version": "1.0.0",
-  "description": "my-template",
+  "description": "Form-Validation-Project",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

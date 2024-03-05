@@ -4,12 +4,11 @@
     "commonjs": true,
     "es2021": true
   },
-  "extends": ["airbnb-base", "prettier"],
+  "extends": "airbnb-base",
   "parserOptions": {
     "ecmaVersion": "latest"
   },
   "rules": {
-    "no-console": "off",
-    "import/no-extraneous-dependencies": ["error", "{ devDependencies: true }"]
+    "no-console": "off"
   }
 }
