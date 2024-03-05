@@ -4,7 +4,7 @@ form {
   padding: 1rem;
   display: grid;
   grid-template-columns: 1fr;
-
+  background-color: rgb(252, 243, 233);
 }
 
 .form-div {
@@ -14,7 +14,6 @@ form {
   display: grid;
   grid-template-columns: 200px 200px;
 }
-
 
 .error {
   color: red;
@@ -60,4 +59,3 @@ input:focus:valid {
   outline: none;
   background-color: white;
 }
-
